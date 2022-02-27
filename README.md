@@ -23,17 +23,12 @@ Find data visualizations here:
 ![image](https://user-images.githubusercontent.com/69401254/155863789-122df56f-a21f-4bff-9883-905f197dd1e8.png)
 
 ## Application Files Break down
-* Heart site v1 pkg:
-  Application root directory folder
  
 * static:
   Holds favicon and image of correlation matrix
 
 * templates:
 holds html files
-
-* venv:
-virtual environment(holds libraries)
 
 * dashApp.py:
 Dash app, has data visualizations
