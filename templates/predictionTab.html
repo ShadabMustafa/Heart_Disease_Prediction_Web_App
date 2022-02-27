@@ -1,0 +1,163 @@
+{% extends "baseTab.html"%}
+{% block content %}
+<!--suppress ALL -->
+<style>
+h1 {text-align: center;   margin: auto;}
+
+
+</style>
+<div class="jumbotron" style="background-color:ghostwhite; margin: 0 27%; border: 15px #070700;">
+
+
+<h1>Patient Heart Disease Probability</h1>
+    <br>
+<h6>This application is created to aid medical professionals.
+  By utilizing machine learning, the application will
+  calculate the patient's probability of having heart disease.
+</h6>
+  <br>
+<h5>
+Please enter patient information below:
+</h5>
+    <br>
+    <form action="{{url_for('result')}}">
+       <!--suppress XmlInvalidId -->
+      <div>
+        <p>Age : </p>
+        <label for="age"></label>
+        <input type="number" id="age" name="age" min="0" max="999" required>
+      </div>
+
+      <div>
+          <br>
+          <p>Sex : </p>
+            <input type="radio" id="Male" name="sex" value="1" style="margin:3px" required>
+          <label for="Male">Male</label><br>
+
+            <input type="radio" id="Female" name="sex" value="0" style="margin:3px" required>
+          <label for="Female">Female</label><br>
+      </div>
+
+        <div>
+          <br>
+          <p>Chest Pain Type : </p>
+            <input type="radio" id="Typical Angina" name="cp" value="0" style="margin:3px" required>
+          <label for="Typical Angina">Typical Angina</label><br>
+
+            <input type="radio" id="Atypical Angina" name="cp" value="1" style="margin:3px" required>
+          <label for="Atypical Angina">Atypical Angina</label><br>
+
+            <input type="radio" id="Non-anginal pain" name="cp" value="2" style="margin:3px" required>
+          <label for="Non-anginal pain">Non-anginal pain</label><br>
+
+            <input type="radio" id="Asymptomatic" name="cp" value="3" style="margin:3px" required>
+          <label for="Asymptomatic">Asymptomatic</label><br>
+      </div>
+
+        <div>
+            <br>
+        <p>Resting Blood Pressure(in mm Hg) : </p>
+        <label for="trestbps"></label>
+        <input type="number" id="trestbps" name="trestbps" min="0" max="999" required>
+      </div>
+
+        <div>
+            <br>
+        <p>Serum Cholestoral(in mg/dl) : </p>
+        <label for="chol"></label>
+        <input type="number" id="chol" name="chol" min="0" max="999" required>
+      </div>
+
+          <div>
+          <br>
+          <p>Is fasting blood sugar greater than 120 mg/dl : </p>
+            <input type="radio" id="Yex" name="fbs" value="1" style="margin:3px" required>
+          <label for="Yex">Yes</label><br>
+
+            <input type="radio" id="Nox" name="fbs" value="0" style="margin:3px" required>
+          <label for="Nox">No</label><br>
+      </div>
+
+    <div>
+          <br>
+          <p>Resting Electrocardiographic Results : </p>
+            <input type="radio" id="normal" name="restecg" value="0" style="margin:3px" required>
+          <label for="normal">Normal Results</label><br>
+
+        <input type="radio" id="stAbno" name="restecg" value="1" style="margin:3px" required>
+          <label for="stAbno">Shows ST-T wave abnormality
+              (T wave inversions and/or ST elevation or depression of > 0.05 mV)</label><br>
+
+        <input type="radio" id="leftVentHy" name="restecg" value="2" style="margin:3px" required>
+          <label for="leftVentHy">Shows probable or
+              definite left ventricular hypertrophy by Estes' criteria</label><br>
+      </div>
+
+        <div>
+            <br>
+        <p>Maximum Heart Rate Achieved : </p>
+        <label for="thalach"></label>
+        <input type="number" id="thalach" name="thalach" min="0" max="999" required>
+      </div>
+
+    <div>
+          <br>
+          <p>Exercise induced angina present? : </p>
+            <input type="radio" id="Yeso" name="exang" value="1" style="margin:3px" required>
+          <label for="Yeso">Yes</label><br>
+
+            <input type="radio" id="Noy" name="exang" value="0" style="margin:3px" required>
+          <label for="Noy">No</label><br>
+      </div>
+
+        <div>
+            <br>
+        <p>ST depression induced by exercise relative to rest : </p>
+        <label for="oldpeak"></label>
+        <input type="number" id="oldpeak" name="oldpeak" min="0" max="99.9" step="0.1" required>
+      </div>
+
+        <div>
+          <br>
+          <p>The slope of the peak exercise ST segment is : </p>
+            <input type="radio" id="upsloping" name="slope" value="0" style="margin:3px"required>
+          <label for="upsloping">upsloping</label><br>
+
+            <input type="radio" id="flat" name="slope" value="1" style="margin:3px" required>
+          <label for="flat">flat</label><br>
+
+            <input type="radio" id="downsloping" name="slope" value="2" style="margin:3px" required>
+          <label for="downsloping">downsloping</label><br>
+      </div>
+
+        <div>
+            <br>
+        <p>Number of major vessels (0-3) colored by flourosopy : </p>
+        <label for="ca"></label>
+        <input type="number" id="ca" name="ca" min="0" max="3" step="1" required>
+      </div>
+
+
+        <div>
+          <br>
+          <p>Thalassemia present? : </p>
+            <input type="radio" id="null" name="thal" value="0" style="margin:3px" required>
+          <label for="null">Not Known</label><br>
+
+            <input type="radio" id="normalo" name="thal" value="2" style="margin:3px" required>
+          <label for="normalo">No</label><br>
+
+            <input type="radio" id="fixed" name="thal" value="1" style="margin:3px" required>
+          <label for="fixed">Fixed defect present</label><br>
+
+            <input type="radio" id="rever" name="thal" value="3" style="margin:3px" required>
+          <label for="rever">Reversible defect present</label><br>
+        </div>
+    <br>
+    <input type="submit" value="Submit">
+
+    </form>
+
+</div>
+
+{% endblock %}
