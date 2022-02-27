@@ -57,9 +57,6 @@ specifies the python version 3.6.15 for the Heroku server to run the program on
 * sqlTab.py:
 holds a second flask app used to interact with the PostgreSQL db
 
-* Documentation and Machine learning model code:
-folder holds documentation and the jupyter notebook used to develop the machine learning model
-
 * PDF Heart Disease Model v1 - Jupyter:
 PDF of jupyter notebook used to
 develop the machine learning model
