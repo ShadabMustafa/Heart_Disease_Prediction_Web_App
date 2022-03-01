@@ -5,6 +5,7 @@ A web application used to predict the probability of an individual having heart 
 Scikit-learn library to create a random forest classifier machine learning algorithm that is 83.60% accurate.
 Stylized web application via Bootstrap 4.
 Incorporated data visualization with Dash Plotly.
+PostgreSQL database used for visualization interactiviness.
 Flask used to link pages together.
 Deployed on to Heroku cloud.
 
