@@ -22,6 +22,9 @@ Navigation bar and prediction page will load in:
 Find data visualizations here:
 
 ![image](https://user-images.githubusercontent.com/69401254/155863789-122df56f-a21f-4bff-9883-905f197dd1e8.png)
+![image](https://user-images.githubusercontent.com/69401254/166811678-5f33a69a-56bf-49d9-997a-fc91f0278acf.png)
+![image](https://user-images.githubusercontent.com/69401254/166811712-440568f2-b684-4086-a849-c1dacf87d5d5.png)
+
 
 ## Application Files Break down
  
